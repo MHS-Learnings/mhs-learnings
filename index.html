@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PTB Test Generator</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f0f2f5; margin: 0; padding: 20px; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+        .card { background: white; padding: 40px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); width: 100%; max-width: 450px; text-align: center; }
+        h2 { color: #1e3d59; margin-bottom: 10px; }
+        p { color: #666; font-size: 14px; margin-bottom: 25px; }
+        select, input { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; font-size: 15px; }
+        button { width: 100%; padding: 14px; background-color: #17b978; color: white; border: none; border-radius: 6px; font-size: 16px; font-weight: bold; cursor: pointer; margin-top: 15px; transition: 0.3s; }
+        button:hover { background-color: #139a63; }
+        #status { margin-top: 20px; font-weight: bold; color: #1e3d59; word-break: break-all; }
+        .api-box { background: #fff3cd; padding: 10px; border-radius: 6px; margin-bottom: 15px; border: 1px solid #ffeeba; }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <h2>PTB Test Generator</h2>
+    <p>Sirf aik click mein Google Form banayein</p>
+
+    <div class="api-box">
+        <input type="password" id="apiKey" placeholder="Enter Gemini API Key yahan dalein">
+    </div>
+    
+    <select id="classSelect">
+        <option value="">Class Select Karein</option>
+        <option value="9th Class">9th Class</option>
+        <option value="10th Class">10th Class</option>
+        <option value="11th Class">11th Class</option>
+        <option value="12th Class">12th Class</option>
+    </select>
+
+    <select id="subjectSelect">
+        <option value="">Subject Select Karein</option>
+        <option value="Physics">Physics</option>
+        <option value="Chemistry">Chemistry</option>
+        <option value="Biology">Biology</option>
+        <option value="Computer Science">Computer Science</option>
+    </select>
+
+    <input type="text" id="chapterInput" placeholder="Chapter ka naam ya number likhein">
+
+    <button onclick="startProcess()">1-Click Generate Form</button>
+
+    <div id="status"></div>
+</div>
+
+<script>
+    // Is script mein agle step mein hum asli kam wala code jorein ge.
+    function startProcess() {
+        let key = document.getElementById('apiKey').value;
+        let cls = document.getElementById('classSelect').value;
+        let sub = document.getElementById('subjectSelect').value;
+        let ch = document.getElementById('chapterInput').value;
+
+        if(!key || !cls || !sub || !ch) {
+            alert("Meharbani karke saari maloomat darj karein!");
+            return;
+        }
+
+        document.getElementById('status').innerText = "AI se raabta ho raha hai... PTB books se MCQs nikale ja rahe hain...";
+    }
+</script>
+
+</body>
+</html>
